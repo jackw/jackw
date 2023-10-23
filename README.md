@@ -9,7 +9,7 @@
 
 <p align="center">I'm currently working at Grafana as a senior software engineer.</p>
 
-<h3 align="center">Languages and Tools</h3>
+<!-- <h3 align="center">Languages and Tools</h3>
 <p align="center">
   <a href="https://babeljs.io/" target="_blank" rel="noreferrer">
     <img
@@ -239,7 +239,7 @@
       height="40"
     /> </a
   >&nbsp;
-</p>
+</p> -->
 
 
 <h3 align="center">Reach out to me</h3>
