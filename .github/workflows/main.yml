@@ -1,0 +1,41 @@
+name: Mark notifications for closed and merged PRs as done
+
+on:
+  workflow_dispatch:
+
+jobs:
+  mark:
+    name: Mark notifications for closed and merged PRs as done
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mark notifications for closed and merged PRs as done
+        uses: actions/github-script@v7
+        id: mark-closed-merged-done
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          script: |-
+            const iterator = github.paginate.iterator("GET /notifications?query=reason%3Areview-requested");
+
+            for await (const { data: notifications } of iterator) {
+              for (const notification of notifications) {
+                if (notification.subject.type !== "PullRequest") {
+                  continue;
+                }
+
+                const url = new URL(notification.subject.url);
+                const { data: pr } = await github.request(`GET ${url.pathname}`);
+                const isReviewer = pr.requested_reviewers.find(r => r.login === "mckn");
+                const isTeamReviewer = pr.requested_teams.find(r => r.slug === "plugins-platform-frontend" || r.slug === "plugins-platform");
+
+                if (pr.state !== "closed" && (isReviewer || isTeamReviewer)) {
+                  continue;
+                }
+
+                await github.request("DELETE /notifications/threads/{thread_id}", {
+                      thread_id: notification.id,
+                    });
+
+                await core.summary.addRaw(`Done: ${pr.html_url}`, true).write();
+              }
+            }
