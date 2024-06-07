@@ -2,6 +2,8 @@ name: Mark notifications for closed and merged PRs as done
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   mark:
