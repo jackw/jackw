@@ -8,9 +8,3 @@
 <h3 align="center">Software engineer based in Italy. 🇮🇹</h3>
 
 <p align="center">I'm currently working at Grafana as a senior software engineer.</p>
-
-<h3 align="center">Reach out to me</h3>
-<p align="center">
-<a href="https://linkedin.com/in/jackwestbrook" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="jackwestbrook" height="30" width="40" /></a>
-
-</p>
