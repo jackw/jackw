@@ -6,4 +6,4 @@
 <h1 align="center">Hi, I'm Jack 👋</h1>
 <h3 align="center">Software engineer based in Italy. 🇮🇹</h3>
 
-<p align="center">I'm currently working at Grafana as a staff software engineer.</p>
+<p align="center">I'm currently working at <a href="https://grafana.com">Grafana</a> as a staff software engineer.</p>
