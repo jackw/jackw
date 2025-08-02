@@ -2,8 +2,6 @@ name: Mark notifications for closed and merged PRs as done
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *'
 
 jobs:
   mark:
@@ -11,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug installed node version
+        run: node --version
       - name: Mark notifications for closed and merged PRs as done
         uses: actions/github-script@v7
         id: mark-closed-merged-done
